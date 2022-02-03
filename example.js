@@ -58,13 +58,14 @@ const spriter = new SVGSpriter({
  * @returns {SVGSpriter}                Spriter instance
  */
 function addFixtureFiles(spriter, files) {
-    files.forEach(file => {
+    for (const file of files) {
         spriter.add(
             path.resolve(path.join(cwd, file)),
             file,
             fs.readFileSync(path.join(cwd, file), 'utf-8')
         );
-    });
+    }
+
     return spriter;
 }
 
@@ -79,10 +80,8 @@ addFixtureFiles(spriter, files).compile({
         }
     }
 }, (error, result) => {
-    for (const type in result.css) {
-        if (Object.prototype.hasOwnProperty.call(result.css, type)) {
-            fs.mkdirSync(path.dirname(result.css[type].path), { recursive: true });
-            fs.writeFileSync(result.css[type].path, result.css[type].contents);
-        }
+    for (const type of Object.values(result.css)) {
+        fs.mkdirSync(path.dirname(type.path), { recursive: true });
+        fs.writeFileSync(type.path, type.contents);
     }
 });

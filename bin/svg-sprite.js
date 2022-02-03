@@ -108,9 +108,7 @@ function addConfigMap(store, path, value) {
  */
 function writeFiles(files) {
     let written = 0;
-    for (const key in files) {
-        const file = files[key];
-
+    for (const file of Object.values(files)) {
         if (isObject(file)) {
             if (file.constructor === File) {
                 fs.mkdirSync(path.dirname(file.path), { recursive: true });
