@@ -103,7 +103,6 @@
         "never"
       ],
       "eslint-comments/disable-enable-pair": "off",
-      "guard-for-in": "off",
       "jsdoc/check-values": [
         "warn",
         {
