@@ -13,14 +13,16 @@ describe('svg-sprite: errors', () => {
                 dest: 'svg'
             }
         });
-        jest.spyOn(spriter, '_layout').mockImplementation().mockImplementation((_, cb) => {
-            cb(new TestError(), {}, {});
-        });
+        jest.spyOn(spriter, '_layout')
+            .mockImplementation()
+            .mockImplementation((_, cb) => {
+                cb(new TestError(), {}, {});
+            });
     });
 
-    it('should throw error if compilation has failed in async mode', async() => {
+    it('should throw error if compilation has failed in async mode', async () => {
         expect.hasAssertions();
-        await expect(async() => {
+        await expect(async () => {
             await spriter.compileAsync();
         }).rejects.toThrow(TestError);
     });

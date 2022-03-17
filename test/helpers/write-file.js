@@ -10,7 +10,7 @@ const path = require('path');
  * @param {string} content            Content
  * @returns {string}                  File
  */
-module.exports = async(file, content) => {
+module.exports = async (file, content) => {
     try {
         await mkdir(path.dirname(file), { recursive: true });
         await writeFile(file, content);

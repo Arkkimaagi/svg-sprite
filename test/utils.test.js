@@ -15,11 +15,11 @@ describe('utils', () => {
         });
 
         it('should return true for an async function', () => {
-            expect(isFunction(async() => {})).toBe(true);
+            expect(isFunction(async () => {})).toBe(true);
         });
 
         it('should return true for generator function', () => {
-            expect(isFunction(function * () {})).toBe(true);
+            expect(isFunction(function* () {})).toBe(true);
         });
 
         it('should return false for a RegExp', () => {
