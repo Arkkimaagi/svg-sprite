@@ -52,9 +52,10 @@ const spriter = new SVGSpriter({
 /**
  * Add a bunch of SVG files
  *
- * @param {SVGSpriter} spriter          Spriter instance
- * @param {Array} files                 SVG files
- * @returns {SVGSpriter}                Spriter instance
+ * @param   {SVGSpriter} spriter Spriter instance
+ * @param   {Array}      files   SVG files
+ *
+ * @returns {SVGSpriter}         Spriter instance
  */
 function addFixtureFiles(spriter, files) {
     files.forEach(file => {

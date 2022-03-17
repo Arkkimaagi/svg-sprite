@@ -6,9 +6,10 @@ const path = require('path');
 /**
  * Prepare and output a file and create directories as necessary
  *
- * @param {string} file               File
- * @param {string} content            Content
- * @returns {string}                  File
+ * @param   {string} file    File
+ * @param   {string} content Content
+ *
+ * @returns {string}         File
  */
 module.exports = async (file, content) => {
     try {
