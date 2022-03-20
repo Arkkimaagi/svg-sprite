@@ -2,9 +2,30 @@
 
 /* eslint-disable unicorn/new-for-builtins, no-new-wrappers, prefer-regex-literals, jest/prefer-expect-assertions */
 
-const { isFunction, isObject, isString, isPlainObject } = require('../lib/svg-sprite/utils/index.js');
+const {
+    escapeHtml,
+    isFunction,
+    isObject,
+    isString,
+    isPlainObject
+} = require('../lib/svg-sprite/utils/index.js');
 
 describe('utils', () => {
+    describe('escapeHtml', () => {
+        it('should escape HTML characters', () => {
+            expect(escapeHtml('&')).toBe('&amp;');
+            expect(escapeHtml('<')).toBe('&lt;');
+            expect(escapeHtml('>')).toBe('&gt;');
+            expect(escapeHtml('"')).toBe('&quot;');
+            expect(escapeHtml('\'')).toBe('&#39;');
+            expect(escapeHtml('/')).toBe('&#x2F;');
+        });
+
+        it('should not throw with an empty string', () => {
+            expect(escapeHtml('')).toBe('');
+        });
+    });
+
     describe('isFunction', () => {
         it('should return true for a class', () => {
             expect(isFunction(class {})).toBe(true);
